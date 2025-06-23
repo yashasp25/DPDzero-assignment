@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ### 3. Configure Database
 1.Set up MySQL using XAMPP 
-2.Create a database named feedback_system
+\2.Create a database named feedback_system
 3.In SQL enter these commands
 ```bash
 CREATE TABLE users (
