@@ -55,3 +55,12 @@ Visit http://127.0.0.1:5000 in your browser to run the application.
 
 ### 5. Test database connectivity
 Visit http://127.0.0.1:5000/test in your browser.
+
+
+## 🔧 Stack Used
+
+- **Backend**: Flask, Flask-Login, SQLAlchemy
+- **Frontend**: HTML5, Bootstrap 5, Jinja2 templates
+- **Database**: MySQL (via XAMPP), pymysql
+- **Other Tools**: Docker (optional), VS Code
+
