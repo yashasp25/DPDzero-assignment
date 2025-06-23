@@ -11,10 +11,12 @@ pymysql.install_as_MySQLdb()
 with open('config.json', 'r') as config_file:
     params = json.load(config_file)["params"]
 
+local_uri = params["local_uri"]
+
 app = Flask(__name__)
 app.secret_key = "feedback_secret"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/feedback_system'
+app.config['SQLALCHEMY_DATABASE_URI'] = local_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 

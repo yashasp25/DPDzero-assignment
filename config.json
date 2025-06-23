@@ -3,6 +3,7 @@
     "user": "admin",
     "password": "admin123",
     "gmail-user": "admin@gmail.com",
-    "gmail-password": "admin123"
+    "gmail-password": "admin123",
+    "local_uri": "mysql+pymysql://root:@localhost/feedback_system"
   }
 }
