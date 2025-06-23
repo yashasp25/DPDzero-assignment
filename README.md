@@ -52,6 +52,8 @@ CREATE TABLE test (
 ```bash
 python app.py
 ```
+Visit http://127.0.0.1:5000 in your browser to run the application.
+
 
 ### 5. Test database connectivity
 Visit http://127.0.0.1:5000/test in your browser.
