@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sign Up - Feedback System</title>
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">DPDZero</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header><!-- End Header -->
+
+  <main class="main mt-0 pt-5">
+    <section id="signup" class="contact section">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Create Your Account</h2>
+          <p>Join the feedback system by signing up as a Manager or Employee.</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card shadow-sm border-0 p-4">
+
+              <!-- Flash Messages -->
+              <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %} -->
+
+              <form action="/signup" method="post" class="php-email-form">
+
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" name="username" id="username" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" id="password" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="role" class="form-label">Role</label>
+                  <select class="form-select" name="role" id="role" required onchange="toggleManagerDropdown()">
+                    <option value="">-- Select Role --</option>
+                    <option value="manager">Manager</option>
+                    <option value="employee">Employee</option>
+                  </select>
+                </div>
+
+                <div class="mb-3" id="managerDropdown" style="display: none;">
+                  <label for="manager_id" class="form-label">Manager</label>
+                  <select class="form-select" name="manager_id" id="manager_id">
+                    <option value="">-- Select Manager --</option>
+                    {% for manager in managers %}
+                      <option value="{{ manager.id }}">{{ manager.username }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">
+                    <span>Sign Up</span>
+                    <i class="bi bi-person-plus"></i>
+                  </button>
+                </div>
+
+                <div class="text-center mt-3">
+                  <small>Already registered? <a href="/login">Login here</a></small>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- JS Files -->
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/js/main.js"></script>
+
+  <!-- Custom Script -->
+  <script>
+    function toggleManagerDropdown() {
+      const role = document.getElementById('role').value;
+      const managerField = document.getElementById('managerDropdown');
+      managerField.style.display = (role === 'employee') ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>

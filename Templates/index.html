@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Instant Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Instant
+  * Template URL: https://bootstrapmade.com/newtemplate-bootstrap-website-template/
+  * Updated: Jun 11 2025 with Bootstrap v5.3.6
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+    .form-select {
+      background-color: transparent !important;
+      color: #7a7a7aeb !important;
+      border: 2px solid #7a7a7a53;
+      border-radius: 11px;
+      padding-left: 20px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">DPDZero</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+
+
+          <li><a href="#contact">Feedback</a></li>
+          <li><a href="/logout">Logout</a></li>
+
+
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="hero-wrapper">
+          <div class="hero-main-content text-center">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="200">
+              Empower Your Team Through<br>
+              <span class="typed" data-typed-items="Constructive Feedback,Real-Time Insights,Continuous Growth"></span>
+            </h1>
+
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+              Our lightweight feedback system fosters a culture of transparency, improvement, and trust—ensuring every
+              voice is heard and every potential is unlocked.
+            </p>
+
+
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
+              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="action-btn secondary glightbox">
+                <i class="bi bi-play-circle"></i>
+                <span>Watch a Quick Demo</span>
+              </a>
+              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="action-btn secondary glightbox">
+                <i class="bi bi-play-circle"></i>
+                <span>Watch a Quick Demo</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Feedback</h2>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="contact-form-wrapper">
+              <div class="form-header text-center">
+                <h3>We value your feedback.</h3>
+                <p>
+                  Because every voice matters, and every insight drives improvement.
+                </p>
+              </div>
+
+              <form action="{{ url_for('submit_feedback') }}" method="post" class="php-email-form">
+
+                <div class="mb-3">
+                  <label for="employee_id" class="form-label">Select Employee</label>
+                  <select class="form-select" name="employee_id" id="employee_id" required>
+                    <option value="">-- Select Team Member --</option>
+                    {% for employee in employees %}
+                    <option value="{{ employee.id }}">{{ employee.name }} (ID: {{ employee.id }})</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="strengths" class="form-label">Strengths</label>
+                  <input class="form-control bg-transparent" type="text" name="strengths" id="strengths" rows="3" required
+                    placeholder="Mention the strengths" />
+                </div>
+
+                <div class="mb-3">
+                  <label for="improvements" class="form-label">Areas to Improve</label>
+                  <input class="form-control bg-transparent" type="text" name="improvements" id="improvements" rows="3"
+                    required placeholder="Mention improvement areas" />
+                </div>
+
+                <div class="mb-3">
+                  <label for="sentiment" class="form-label">Overall Sentiment</label>
+                  <select class="form-select bg-transparent" name="sentiment" id="sentiment" required>
+                    <option value="">-- Select Sentiment --</option>
+                    <option value="positive">Positive</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="negative">Negative</option>
+                  </select>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">Submitting...</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Feedback submitted successfully!</div>
+                </div>
+
+                <button type="submit" class="submit-btn btn btn-primary w-100">
+                  <span>Submit Feedback</span>
+                  <i class="bi bi-send"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
